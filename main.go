@@ -37,6 +37,8 @@ func queryHandler(c *gin.Context){
 	name := c.Query("name")
 
 	c.JSON(http.StatusOK, gin.H{
+		"status" : true,
+		"message" : "record found!",
 		"customer_id" : "CUS-01",
 		"customer_name" : name,
 	})
