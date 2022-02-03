@@ -13,6 +13,7 @@ func main() {
 
 	router.GET("/customer/:id", customerHandler)
 
+	router.GET("/query", queryHandler)
 	router.Run(":8000")
 }
 
@@ -29,5 +30,14 @@ func customerHandler(c *gin.Context){
 	c.JSON(http.StatusOK, gin.H{
 		"customer_id" : id,
 		"customer_name" : "Asrul Cahyadi Putra",
+	})
+}
+
+func queryHandler(c *gin.Context){
+	name := c.Query("name")
+
+	c.JSON(http.StatusOK, gin.H{
+		"customer_id" : "CUS-01",
+		"customer_name" : name,
 	})
 }
